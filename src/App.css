@@ -1,0 +1,24 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.menu__logo {
+    height: 100%;
+    
+    img {
+        height: 100%;
+    }
+}
+
+.menu__login {
+    margin-left: auto !important;
+}
+
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px); /* nhích lên trên 8px */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* thêm bóng nhẹ */
+}
