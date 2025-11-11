@@ -16,7 +16,9 @@ function Home() {
                 flexWrap: "wrap",
                 justifyContent: "center",
                 flexDirection: "column",
-                padding: "0 150px"
+                padding: "0 10px",
+                marginLeft: "auto",
+                marginRight: "auto"
             }}>
                 <div className="home__title" style={{ textAlign: "center" }}>
                     <h1>Chào mừng bạn đến với Shop Online của chúng tôi!</h1>

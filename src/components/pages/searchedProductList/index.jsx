@@ -21,8 +21,6 @@ function SearchedProductList() {
     }, [])
 
     const handleChange = async (e) => {
-        console.log(e);
-        console.log(data);
         const response = await SortProduct(e, id);
         setData(response);
     }

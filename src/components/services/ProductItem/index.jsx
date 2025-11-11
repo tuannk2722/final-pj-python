@@ -2,6 +2,7 @@ import { Badge, Card, Col } from "antd";
 import EditProduct from "../EditProduct";
 import DeleteProduct from "../DeleteProduct";
 import AddToCart from "../AddToCart";
+import '../../../App.css'
 
 const { Meta } = Card;
 
@@ -10,21 +11,29 @@ function ProductItem(props) {
 
     return (
         <>
-            <div style={{ position: "relative", display: "inline-block" }}>
+            <div style={{ position: "relative", display: "block", width: "100%" }}>
                 <Badge.Ribbon
                     text={`-${item.discountPercentage}%`}
                     color="yellow"
                     placement="end"
                 >
-                    <Card className="product-card"
+                    <Card
+                        className="product-card"
                         hoverable
-                        style={{ width: 200, transition: "transform 0.3s, box-shadow 0.3s" }}
+                        style={{
+                            width: "100%",
+                            transition: "transform 0.3s, box-shadow 0.3s",
+                        }}
                         cover={
                             <img
                                 draggable={false}
                                 alt={item.title}
                                 src={item.thumbnail}
-                                style={{ height: 150, objectFit: "cover" }}
+                                style={{
+                                    height: 150,
+                                    width: "100%",
+                                    objectFit: "cover",
+                                }}
                             />
                         }
                         actions={[

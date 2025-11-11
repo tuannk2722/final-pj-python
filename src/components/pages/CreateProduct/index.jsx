@@ -35,7 +35,6 @@ function CreateProduct() {
 
     const handleSubmit = async (e) => {
         e.categoryId = Number(e.categoryId);
-        console.log(e);
         const response = await CreateProductAction(e);
         if (response) {
             success();

@@ -16,7 +16,7 @@ export const AddProductToCart = async (data) => {
 }
 
 export const UpdateQuantityCart = async (id, data) => {
-    const result = await patch(`cart/${id}/`, data);
+    const result = await patch(`cart/item/update/?product_id=${id}`, data);
     return result;
 }
 

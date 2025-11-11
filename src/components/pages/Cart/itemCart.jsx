@@ -19,7 +19,6 @@ function ItemCart(props) {
     }
 
     const confirm = async () => {
-        console.log(item);
         const response = await GetItemCartByIdProduct(item.id);
         if (response) {
             const result = await DeleteItemCart(response.id);

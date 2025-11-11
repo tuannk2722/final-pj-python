@@ -30,7 +30,6 @@ function EditProduct(props) {
         const result1 = await GetCategoryById(item.categoryId);
         if (result && result1) {
             setCategories(result);
-            console.log(result1);
             form.setFieldsValue({
                 ...item,
                 // categoryId: result1.name
@@ -41,7 +40,6 @@ function EditProduct(props) {
     useEffect(() => {
         if (isModalOpen) {
             fetchApi();
-            console.log(item);
         }
     }, [isModalOpen, item]);
 
@@ -62,7 +60,6 @@ function EditProduct(props) {
     const handleSubmit = async (e) => {
         e.id = item.id;
         e.categoryId = Number(e.categoryId);
-        console.log(e);
         const response = await EditProductAction(e.id, e);
         if (response) {
             success();
