@@ -10,7 +10,7 @@ const store = createStore(AllReducers);
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <BrowserRouter basename="/project-python">
+    <BrowserRouter basename="/final-pj-python">
       <App />
     </BrowserRouter>,
   </Provider>
