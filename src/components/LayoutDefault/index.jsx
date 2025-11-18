@@ -1,70 +1,126 @@
 import { Badge, Layout, Menu } from "antd";
-import { Link, Outlet, useLocation } from "react-router-dom";
-import { ShoppingCartOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import { useEffect, useState } from "react";
-import { GetAllCart } from "../helpers/cart";
+import { Link, Outlet } from "react-router-dom";
+import {
+    ShoppingCartOutlined,
+    PlusCircleOutlined,
+    LoginOutlined,
+    LogoutOutlined,
+    UserOutlined
+} from "@ant-design/icons";
 
 const { Header, Content, Footer } = Layout;
 
 function LayoutDefault() {
-    const [current, setCurrent] = useState('home')
-    const location = useLocation();
-    const [ show, setShow ] = useState(false);
+    const role = localStorage.getItem("role");
 
-    const fetchApi = async () => {
-        const response = await GetAllCart();
-        if (response) {
-            setShow(true);
+    // Menu khi chưa login
+    const menuGuest = [
+        {
+            key: "login",
+            label: <Link to="/login">Login</Link>,
+            icon: <LoginOutlined />,
+            className: "menu__login"
+        },
+        {
+            key: "register",
+            label: <Link to="/register">Register</Link>,
         }
-    }
+    ];
 
-    useEffect(() => {
-        fetchApi();
-        if (location.pathname === "/") {
-            setCurrent("home");
-        } else {
-            setCurrent(location.pathname.replace("/", ""))
+    // Menu của user
+    const menuUser = [
+        {
+            key: "cart",
+            label: <Link to="/cart">Cart</Link>,
+            icon: (
+                <Badge dot>
+                    <ShoppingCartOutlined style={{ fontSize: 18 }} />
+                </Badge>
+            ),
+            className: "menu__login"
+        },
+        {
+            key: "logout",
+            label: <Link to="/logout">Logout</Link>,
+            icon: <LogoutOutlined />
         }
-    }, [location.pathname])
+    ];
 
-    const items = [
+    // Menu của admin
+    const menuAdmin = [
+        {
+            key: "admin",
+            label: <Link to="/admin">Quản lý</Link>,
+            icon: <UserOutlined />,
+            className: "menu__login"
+        },
         {
             key: "createProduct",
-            label: <Link to="createProduct">New Product</Link>,
+            label: <Link to="/admin/createProduct">New Product</Link>,
             icon: <PlusCircleOutlined />,
-            className: "menu__login",
         },
         {
             key: "cart",
-            label: <Link to="cart">Cart</Link>,
-            icon: <Badge dot={show}><ShoppingCartOutlined style={{fontSize: 18}}/></Badge>
+            label: <Link to="/cart">Cart</Link>,
+            icon: (
+                <Badge dot>
+                    <ShoppingCartOutlined style={{ fontSize: 18 }} />
+                </Badge>
+            )
+        },
+        {
+            key: "logout",
+            label: <Link to="/logout">Logout</Link>,
+            icon: <LogoutOutlined />
         }
-    ]
+    ];
+
+    // Chọn menu theo role
+    let menuList = menuGuest;
+    if (role) {
+        menuList = role === "admin" ? menuAdmin : menuUser;
+    }
 
     return (
-        <>
-            <Layout>
-                <Header style={{ display: "flex", alignItems: "center", backgroundColor: "#fff", position: "fixed", zIndex: 2, width: "100%", borderRadius: 50 }}>
-                    <Link to="/" className="menu__logo">
-                        Logo
-                    </Link>
-                    <Menu
-                        items={items}
-                        mode="horizontal"
-                        selectedKeys={[current]}
-                        style={{ flex: 1, minWidth: 0, borderBottom: "none" }}
-                    />
-                </Header>
+        <Layout>
+            <Header
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    backgroundColor: "#fff",
+                    position: "fixed",
+                    zIndex: 2,
+                    width: "100%",
+                    borderRadius: 50
+                }}
+            >
+                <Link to="/" className="menu__logo">
+                    Logo
+                </Link>
 
-                <Content style={{ marginTop: 64, minHeight: "80vh" }}>
-                    <Outlet />
-                </Content>
+                <Menu
+                    items={menuList}
+                    mode="horizontal"
+                    style={{ flex: 1, minWidth: 0, borderBottom: "none" }}
+                />
+            </Header>
 
-                <Footer style={{ display: "flex", justifyContent: "center", backgroundColor: "#ccc", fontWeight: 700 }}>
-                    Copyright @by ...
-                </Footer>
-            </Layout>
-        </>
-    )
+            <Content style={{ marginTop: 64, minHeight: "80vh" }}>
+                <Outlet />
+            </Content>
+
+            <Footer
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    backgroundColor: "#ccc",
+                    fontWeight: 700
+                }}
+            >
+                Copyright @by ...
+            </Footer>
+        </Layout>
+    );
 }
+
 export default LayoutDefault;

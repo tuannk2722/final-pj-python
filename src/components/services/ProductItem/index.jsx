@@ -1,6 +1,4 @@
 import { Badge, Card, Col } from "antd";
-import EditProduct from "../EditProduct";
-import DeleteProduct from "../DeleteProduct";
 import AddToCart from "../AddToCart";
 import '../../../App.css'
 
@@ -37,8 +35,8 @@ function ProductItem(props) {
                             />
                         }
                         actions={[
-                            <EditProduct item={item} onReload={onReload} />,
-                            <DeleteProduct id={item.id} onReload={onReload} />,
+                            // <EditProduct item={item} onReload={onReload} />,
+                            // <DeleteProduct id={item.id} onReload={onReload} />,
                             <AddToCart item={item} onReload={onReload} />,
                         ]}
                     >

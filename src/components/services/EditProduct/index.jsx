@@ -32,7 +32,6 @@ function EditProduct(props) {
             setCategories(result);
             form.setFieldsValue({
                 ...item,
-                // categoryId: result1.name
             });
         }
     }

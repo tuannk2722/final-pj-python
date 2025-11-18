@@ -3,6 +3,7 @@ import { GetAllProducts } from "../../helpers/product";
 import ListCart from "./listCart";
 import { DeleteItemCart, GetAllCart } from "../../helpers/cart";
 import { Button, message, Popconfirm } from "antd";
+import { Link } from "react-router-dom";
 
 function Cart() {
     const [data, setData] = useState([]);
@@ -100,6 +101,11 @@ function Cart() {
                     <h3>
                         Thành tiền: <span style={{ color: "red" }}>{total.toFixed(0)} đ</span>
                     </h3>
+                </div>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                    <Button type="primary">
+                        <Link to="/orders">Tạo đơn hàng</Link>
+                    </Button>
                 </div>
             </div>
         </>

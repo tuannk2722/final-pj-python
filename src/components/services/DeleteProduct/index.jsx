@@ -11,7 +11,7 @@ function DeleteProduct(props) {
         messageApi.open({
             type: "success",
             content: "Xóa sản phẩm thành công!"
-        })
+        }) 
     }
     const error = () => {
         messageApi.open({
