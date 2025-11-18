@@ -5,7 +5,8 @@ import {
     PlusCircleOutlined,
     LoginOutlined,
     LogoutOutlined,
-    UserOutlined
+    UserOutlined,
+    ProductOutlined
 } from "@ant-design/icons";
 
 const { Header, Content, Footer } = Layout;
@@ -42,7 +43,7 @@ function LayoutDefault() {
         {
             key: "order",
             label: <Link to="/orders">Orders</Link>,
-            icon: <LogoutOutlined />
+            icon: <ProductOutlined />
         },
         {
             key: "logout",
@@ -76,7 +77,7 @@ function LayoutDefault() {
         {
             key: "order",
             label: <Link to="/orders">Orders</Link>,
-            icon: <LogoutOutlined />
+            icon: <ProductOutlined />
         },
         {
             key: "logout",
