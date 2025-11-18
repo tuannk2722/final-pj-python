@@ -40,6 +40,11 @@ function LayoutDefault() {
             className: "menu__login"
         },
         {
+            key: "order",
+            label: <Link to="/orders">Orders</Link>,
+            icon: <LogoutOutlined />
+        },
+        {
             key: "logout",
             label: <Link to="/logout">Logout</Link>,
             icon: <LogoutOutlined />
@@ -67,6 +72,11 @@ function LayoutDefault() {
                     <ShoppingCartOutlined style={{ fontSize: 18 }} />
                 </Badge>
             )
+        },
+        {
+            key: "order",
+            label: <Link to="/orders">Orders</Link>,
+            icon: <LogoutOutlined />
         },
         {
             key: "logout",

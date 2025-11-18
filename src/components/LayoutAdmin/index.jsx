@@ -29,11 +29,6 @@ function LayoutAdmin() {
             key: "createProduct",
             label: <Link to="/admin/createProduct">New Product</Link>,
             icon: <PlusCircleOutlined />,
-        },
-        {
-            key: "logout",
-            label: <Link to="/logout">Logout</Link>,
-            icon: <LogoutOutlined />
         }
     ];
 
