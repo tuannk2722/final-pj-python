@@ -42,7 +42,7 @@ function LayoutDefault() {
         },
         {
             key: "order",
-            label: <Link to="/orders">Orders</Link>,
+            label: <Link to="/checkouts">Orders</Link>,
             icon: <ProductOutlined />
         },
         {
@@ -76,7 +76,7 @@ function LayoutDefault() {
         },
         {
             key: "order",
-            label: <Link to="/orders">Orders</Link>,
+            label: <Link to="/checkouts">Orders</Link>,
             icon: <ProductOutlined />
         },
         {
